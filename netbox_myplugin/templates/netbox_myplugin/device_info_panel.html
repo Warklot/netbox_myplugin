@@ -1,0 +1,17 @@
+html<div class="card">
+    <div class="card-header">
+        <strong>Custom Device Information</strong>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover attr-table">
+            <tr>
+                <th scope="row">Purchase Order</th>
+                <td>{{ device.custom_field_data.myplugin_purchase_order|default:"—" }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Warranty End</th>
+                <td>{{ device.custom_field_data.myplugin_warranty_end|default:"—" }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
