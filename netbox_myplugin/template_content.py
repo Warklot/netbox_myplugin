@@ -10,6 +10,17 @@ class DeviceListButtons(PluginTemplateExtension):
 
         return self.render('netbox_myplugin/device_list_button.html')
 
+
+class DeviceDetailButtons(PluginTemplateExtension):
+    model = 'dcim.device'
+    
+    def buttons(self):
+        # Show Edit button on device detail page
+        device = self.context['object']
+        return self.render('netbox_myplugin/device_detail_button.html', extra_context={
+            'device': device
+        })
+
 class DeviceMyPluginInfo(PluginTemplateExtension):
     model = 'dcim.device'
     
@@ -19,4 +30,4 @@ class DeviceMyPluginInfo(PluginTemplateExtension):
             'device': device
         })
 
-template_extensions = [DeviceListButtons, DeviceMyPluginInfo]
+template_extensions = [DeviceListButtons, DeviceDetailButtons, DeviceMyPluginInfo]
